@@ -1,38 +1,189 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  background-color: rgb(30, 49, 66);
+  width: 35%;
+  margin: auto;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#part1 {
+  padding: 2%;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.fa-long-arrow-alt-left {
+  font-size: 3rem;
+  color: rgb(31, 148, 113);
+}
+.fa-volume-up {
+  font-size: 3rem;
+  color: orangered;
+  float: right;
+}
+#part2 {
+  margin: 2% 1%;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+}
+.player {
+  color: rgb(17, 219, 105);
+  /* border: 1px solid white; */
+  display: inline-block;
+  width: 25%;
+  text-align: center;
+  font-size: 25px;
+  font-family: cursive;
+}
+.fa-times {
+  font-size: 80px;
+  color: orangered;
+  margin: 10px;
+  font-weight: 400;
+}
+#score {
+  /* border: 1px solid white; */
+  font-size: 70px;
+  display: inline-block;
+  width: 47%;
+  text-align: center;
+  color: azure;
+  /* margin-top: -40% */
+}
+#score span {
+  color: grey;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.fa-circle {
+  font-size: 80px;
+  color: rgb(17, 219, 105);
+  margin: 10px;
+  font-weight: 400;
+}
+#part3 {
+  display: table;
+  border-collapse: collapse;
+  border: 2px solid grey;
+  margin: 4% auto;
+  width: 70%;
+}
+/* .line{
+    margin: 0 2%;
+} */
+.grid-container {
+  display: grid;
+  grid-template-columns: 33.3% 33.3% auto;
+  /* background-color: #2196F3; */
+  /* padding: 10px; */
+}
+.grid-item {
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  border: 2px solid grey;
+  padding: 20px;
+  font-size: 90px;
+
+  height: 70px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-family: cursive;
+}
+#part4 {
+  margin: 8% 5%;
+  width: 90%;
+}
+.button {
+  border-radius: 20px;
+  width: 100%;
+  padding-bottom: 5%;
+}
+.btn-reset {
+  background-color: rgb(31, 148, 113);
+  color: #242322;
+  border-radius: 20px;
+  width: 40%;
+  padding: 25px;
+  font-weight: 800;
+  font-size: 25px;
+}
+.btn-again {
+  background-color: orangered;
+  color: #242322;
+  border-radius: 20px;
+  width: 40%;
+  padding: 25px;
+  float: right;
+  font-weight: 800;
+  font-size: 25px;
 }
 
-.App-link {
-  color: #61dafb;
+.red {
+  color: orangered;
+}
+.green {
+  color: rgb(17, 219, 105);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* media queries */
+/* large devices */
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 50%;
+    /* background-color: yellow; */
   }
-  to {
-    transform: rotate(360deg);
+  .grid-item {
+    height: 175px;
+  }
+  .btn-again {
+    height: 100px;
+    font-size: 20px;
+  }
+  .btn-reset {
+    height: 100px;
+    font-size: 20px;
+  }
+  #part4 {
+    margin: 8% 5%;
+  }
+}
+/* medium devices */
+@media screen and (max-width: 900px) {
+  .container {
+    width: 75%;
+    /* background-color: green; */
+  }
+  .grid-item {
+    height: 150px;
+  }
+  .btn-again {
+    height: 75px;
+    font-size: 15px;
+  }
+  .btn-reset {
+    height: 75px;
+    font-size: 15px;
+  }
+  #part4 {
+    margin: 6% 5%;
+  }
+}
+/* small devices */
+@media screen and (max-width: 600px) {
+  .container {
+    width: 100%;
+    /* background-color: orange; */
+  }
+  .grid-item {
+    height: 100px;
+  }
+  .btn-again {
+    height: 50px;
+    font-size: 10px;
+  }
+  .btn-reset {
+    height: 50px;
+    font-size: 10px;
+  }
+  #part4 {
+    margin: 4% 5%;
   }
 }
