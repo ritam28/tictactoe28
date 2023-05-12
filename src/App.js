@@ -1,6 +1,6 @@
 import "./App.css";
 import Tile from "./components/Tile";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 
 const winnerCombination = [
   [0, 1, 2],
@@ -20,15 +20,11 @@ function App() {
   const [winner, setWinner] = useState("");
 
   function checkWinner() {
-    console.log("player checkWinner", player);
+    // console.log("player checkWinner", player);
     for (let i = 0; i < winnerCombination.length; i++) {
       const [a, b, c] = winnerCombination[i];
       if (grid[a] && grid[a] === grid[b] && grid[a] === grid[c]) {
-        setWinner(grid[a]);
-        setScore((prevScore) => ({
-          ...prevScore,
-          [grid[a]]: prevScore[grid[a]] + 1,
-        }));
+        return grid[a];
       }
     }
   }
@@ -45,7 +41,6 @@ function App() {
   }
 
   function tileClick(event) {
-    console.log("player start", player);
     // This is added to prevent overrider the current tile value
     if (grid[event.target.id] !== "" || winner !== "") return;
 
@@ -57,25 +52,30 @@ function App() {
     // Set the updated Grid to the state
     setGrid(newGrid);
 
-    // Check if there is a winner
-    // checkWinner();
-
-    if (winner !== "") return;
-
     // Change the player
     if (player === "X") {
       setPlayer("O");
     } else {
       setPlayer("X");
     }
-
-    console.log("player end", player);
   }
 
   useEffect(() => {
-    // checkWinner();
-    console.log("player useEffect", player);
-  }, [player]);
+    const winnerCalc = checkWinner();
+    if (winnerCalc) {
+      setWinner(winnerCalc);
+      setScore((prevScore) => {
+        return { ...prevScore, [winnerCalc]: prevScore[winnerCalc] + 1 };
+      });
+      console.log("winnerCalc", winnerCalc);
+    }
+  }, [grid]);
+
+  useEffect(() => {
+    if (winner !== "") {
+      alert(`Player ${winner} won the game`);
+    }
+  }, [winner]);
 
   return (
     <>
