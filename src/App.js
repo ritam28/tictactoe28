@@ -67,22 +67,24 @@ function App() {
       setScore((prevScore) => {
         return { ...prevScore, [winnerCalc]: prevScore[winnerCalc] + 1 };
       });
+      // alert(`Player ${winnerCalc} won the game`);
       console.log("winnerCalc", winnerCalc);
     }
   }, [grid]);
 
-  useEffect(() => {
-    if (winner !== "") {
-      alert(`Player ${winner} won the game`);
-    }
-  }, [winner]);
+  // useEffect(() => {
+  //   if (winner !== "") {
+  //     // alert(`Player ${winner} won the game`);
+  //   }
+  // }, [score]);
 
   return (
     <>
       <div className="container">
-        <div id="part1">
-          <i className="fas fa-long-arrow-alt-left"></i>
-          <i className="fas fa-volume-up"></i>
+        <div className="result blink_me">
+          {/* <i className="fas fa-long-arrow-alt-left"></i>
+          <i className="fas fa-volume-up"></i> */}
+          {winner !== "" ? "Player " + winner + " won the game" : ""}
         </div>
         <div id="part2">
           <div id="player1" className="player">
