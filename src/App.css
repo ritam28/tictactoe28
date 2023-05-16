@@ -3,30 +3,22 @@
   padding: 0;
 }
 .container {
-  background-color: rgb(30, 49, 66);
+  background-color: rgb(64, 129, 67);
   width: 35%;
   margin: auto;
 }
 #part1 {
   padding: 2%;
 }
-.fa-long-arrow-alt-left {
-  font-size: 3rem;
-  color: rgb(31, 148, 113);
-}
-.fa-volume-up {
-  font-size: 3rem;
-  color: orangered;
-  float: right;
-}
+
 #part2 {
   margin: 2% 1%;
   display: flex;
   justify-content: center;
 }
 .player {
-  color: rgb(17, 219, 105);
-  /* border: 1px solid white; */
+  color: rgb(17, 95, 219);
+  border: 2px solid black;
   display: inline-block;
   width: 25%;
   text-align: center;
@@ -40,13 +32,11 @@
   font-weight: 400;
 }
 #score {
-  /* border: 1px solid white; */
-  font-size: 70px;
+  font-size: 90px;
   display: inline-block;
   width: 47%;
   text-align: center;
   color: azure;
-  /* margin-top: -40% */
 }
 #score span {
   color: grey;
@@ -55,7 +45,7 @@
 
 .fa-circle {
   font-size: 80px;
-  color: rgb(17, 219, 105);
+  color: rgb(4, 32, 79);
   margin: 10px;
   font-weight: 400;
 }
@@ -66,21 +56,15 @@
   margin: 4% auto;
   width: 70%;
 }
-/* .line{
-    margin: 0 2%;
-} */
+
 .grid-container {
   display: grid;
   grid-template-columns: 33.3% 33.3% auto;
-  /* background-color: #2196F3; */
-  /* padding: 10px; */
 }
 .grid-item {
-  /* background-color: rgba(255, 255, 255, 0.8); */
-  border: 2px solid grey;
+  border: 2px solid rgb(9, 7, 7);
   padding: 20px;
   font-size: 90px;
-
   height: 70px;
   display: flex;
   align-items: center;
@@ -97,7 +81,7 @@
   padding-bottom: 5%;
 }
 .btn-reset {
-  background-color: rgb(31, 148, 113);
+  background-color: rgba(187, 113, 187, 0.947);
   color: #242322;
   border-radius: 20px;
   width: 40%;
@@ -106,7 +90,7 @@
   font-size: 25px;
 }
 .btn-again {
-  background-color: orangered;
+  background-color: rgba(227, 112, 58, 0.755);
   color: #242322;
   border-radius: 20px;
   width: 40%;
@@ -117,10 +101,10 @@
 }
 
 .red {
-  color: orangered;
+  color: rgb(36, 28, 120);
 }
 .green {
-  color: rgb(17, 219, 105);
+  color: rgb(153, 5, 5);
 }
 
 .result {
@@ -148,7 +132,6 @@
 @media screen and (max-width: 1200px) {
   .container {
     width: 50%;
-    /* background-color: yellow; */
   }
   .grid-item {
     height: 175px;

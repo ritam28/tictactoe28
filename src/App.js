@@ -15,12 +15,13 @@ const winnerCombination = [
 
 function App() {
   const [grid, setGrid] = useState(Array(9).fill(""));
-  const [player, setPlayer] = useState("O");
+  const [player, setPlayer] = useState("X");
   const [score, setScore] = useState({ X: 0, O: 0 });
   const [winner, setWinner] = useState("");
+  const player1 = document.querySelector("#player1");
+  const player2 = document.querySelector("#player2");
 
   function checkWinner() {
-    // console.log("player checkWinner", player);
     for (let i = 0; i < winnerCombination.length; i++) {
       const [a, b, c] = winnerCombination[i];
       if (grid[a] && grid[a] === grid[b] && grid[a] === grid[c]) {
@@ -36,8 +37,12 @@ function App() {
 
   function playAgain() {
     setWinner("");
-    setPlayer("O");
+    setPlayer("X");
     setGrid(Array(9).fill(""));
+    player1.textContent = "Player1";
+    player1.style.color = "rgb(17, 219, 105)";
+    player2.textContent = "Player2";
+    player2.style.color = "rgb(17, 219, 105)";
   }
 
   function tileClick(event) {
@@ -63,20 +68,23 @@ function App() {
   useEffect(() => {
     const winnerCalc = checkWinner();
     if (winnerCalc) {
-      setWinner(winnerCalc);
+      if (winnerCalc === "X") setWinner("1");
+      if (winnerCalc === "O") setWinner("2");
       setScore((prevScore) => {
         return { ...prevScore, [winnerCalc]: prevScore[winnerCalc] + 1 };
       });
-      // alert(`Player ${winnerCalc} won the game`);
+
       console.log("winnerCalc", winnerCalc);
+      if (winnerCalc === "X") {
+        player1.textContent = "Winner!";
+        player1.style.color = "orangered";
+      }
+      if (winnerCalc === "O") {
+        player2.textContent = "Winner!";
+        player2.style.color = "orangered";
+      }
     }
   }, [grid]);
-
-  // useEffect(() => {
-  //   if (winner !== "") {
-  //     // alert(`Player ${winner} won the game`);
-  //   }
-  // }, [score]);
 
   return (
     <>
@@ -84,7 +92,7 @@ function App() {
         <div className="result blink_me">
           {/* <i className="fas fa-long-arrow-alt-left"></i>
           <i className="fas fa-volume-up"></i> */}
-          {winner !== "" ? "Player " + winner + " won the game" : ""}
+          {winner !== "" ? "Player  " + winner + " won the game" : ""}
         </div>
         <div id="part2">
           <div id="player1" className="player">
